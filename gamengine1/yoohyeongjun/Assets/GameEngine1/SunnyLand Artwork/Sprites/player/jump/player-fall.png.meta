@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 8afd73b29f8e34c70b0db80184b8cc7f
+guid: 598fb1767626f42e992bb9c2769d86ea
 AssetOrigin:
   serializedVersion: 1
   productId: 103349
   packageName: Sunny Land
   packageVersion: 1.1
-  assetPath: Assets/SunnyLand Artwork/Sprites/player/run/player-run-1.png
+  assetPath: Assets/SunnyLand Artwork/Sprites/player/jump/player-fall.png
   uploadId: 540939
 TextureImporter:
   internalIDToNameTable: []

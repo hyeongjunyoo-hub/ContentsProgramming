@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 72de0c64f2c6a498096698322c976a67
+guid: d094cf6ac3d8a4d0bbbef5d6d6ad3eed
 AssetOrigin:
   serializedVersion: 1
   productId: 103349
   packageName: Sunny Land
   packageVersion: 1.1
-  assetPath: Assets/SunnyLand Artwork/Sprites/player/idle/player-idle-1.png
+  assetPath: Assets/SunnyLand Artwork/Sprites/player/run/player-run-2.png
   uploadId: 540939
 TextureImporter:
   internalIDToNameTable: []
@@ -53,9 +53,9 @@ TextureImporter:
   spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 0
+  alignment: 7
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
