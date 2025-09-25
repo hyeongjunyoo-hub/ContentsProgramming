@@ -1,12 +1,5 @@
 fileFormatVersion: 2
-guid: bd59bf2e866ed4529ae645637eb9c11d
-AssetOrigin:
-  serializedVersion: 1
-  productId: 103349
-  packageName: Sunny Land
-  packageVersion: 1.1
-  assetPath: Assets/SunnyLand Artwork/Sprites/Items/gem/gem-1.png
-  uploadId: 540939
+guid: 4fdf48cad5b65804991738d1253bfbed
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
