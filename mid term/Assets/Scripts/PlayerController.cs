@@ -1,6 +1,4 @@
-
 using UnityEngine;
-using UnityEngine.SocialPlatforms.Impl;
 
 public class PlayerController : MonoBehaviour
 {
@@ -13,7 +11,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private bool isGrounded = false;  // 새로 추가!
     private int score = 0;
-    private UnityEngine.Vector3 startPosition;
+    private Vector3 startPosition;
     
     void Start()
     {
@@ -59,7 +57,9 @@ public class PlayerController : MonoBehaviour
             moveX = 1f;
             spriteRenderer.flipX = false;   // 오른쪽
         }
+
         float currentMoveSpeed = moveSpeed;
+        
         if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
         {
             currentMoveSpeed = moveSpeed * 2f;
@@ -69,21 +69,24 @@ public class PlayerController : MonoBehaviour
 
 
         // 물리 기반 이동 (새로운 방식!)
-        rb.linearVelocity = new UnityEngine.Vector2(moveX * currentMoveSpeed, rb.linearVelocity.y);
-
+        rb.linearVelocity = new Vector2(moveX * currentMoveSpeed, rb.linearVelocity.y);
+        
+        float currentSpeed = Mathf.Abs(rb.linearVelocity.x);
+       
         if (animator != null)
         {
-            if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
-            {
-
-                animator.SetTrigger("Jump");
-                rb.linearVelocity = new UnityEngine.Vector2(rb.linearVelocity.x, jumpForce);
-                Debug.Log("점프!");
-            }
+            animator.SetFloat("Speed", currentSpeed);
+            Debug.Log("Current Speed:" + currentSpeed);
+        }
+        
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        {
+            animator.SetTrigger("Jump");
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+            Debug.Log("점프!");
         }
         // 애니메이션 제어
-        float currentSpeed = Mathf.Abs(rb.linearVelocity.x);
-        animator.SetFloat("Speed", currentSpeed);
+    
     }
     
     void OnCollisionEnter2D(Collision2D collision)
@@ -91,16 +94,14 @@ public class PlayerController : MonoBehaviour
         // 충돌한 오브젝트가 "Ground" Tag를 가지고 있는지 확인
         if (collision.gameObject.CompareTag("Ground"))
         {
-            Debug.Log("바닥에 착지!");
             isGrounded = true;
+            Debug.Log("바닥에 착지!");
         }
         if(collision.gameObject.CompareTag("Obstacle"))
         {
-            Debug.Log("장애물 충돌! 시작 지점으로 돌아갑니다.");
             transform.position = startPosition;
-            rb.linearVelocity = new UnityEngine.Vector2(0f,0f);
-            
-
+            rb.linearVelocity = new Vector2(0f,0f);
+            Debug.Log("장애물 충돌! 시작 지점으로 돌아갑니다.");
         }
 	}
 
@@ -109,8 +110,8 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            Debug.Log("바닥에서 떨어짐");
             isGrounded = false;
+            Debug.Log("바닥에서 떨어짐");
         }
     }
 
